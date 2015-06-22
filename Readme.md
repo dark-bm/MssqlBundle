@@ -1,5 +1,3 @@
-**WARNING**: This fork is abandoned :(
-
 Install
 -------
 

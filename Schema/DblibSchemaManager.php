@@ -25,39 +25,39 @@ class DblibSchemaManager extends SQLServerSchemaManager
         return end($sequence);
     }
 
-    protected function _getPortableTableForeignKeysList($tableForeignKeys)
-    {
-        $list = array();
-        foreach ($tableForeignKeys as $key => $value) {
-            $value = \array_change_key_case($value, CASE_LOWER);
-            if (!isset($list[$value['foreignkey']])) {
-                if ($value['delete_referential_action_desc'] == "NO ACTION") {
-                    $value['delete_referential_action_desc'] = null;
-                }
+    // protected function _getPortableTableForeignKeysList($tableForeignKeys)
+    // {
+    //     $list = array();
+    //     foreach ($tableForeignKeys as $key => $value) {
+    //         $value = \array_change_key_case($value, CASE_LOWER);
+    //         if (!isset($list[$value['foreignkey']])) {
+    //             if ($value['delete_referential_action_desc'] == "NO ACTION") {
+    //                 $value['delete_referential_action_desc'] = null;
+    //             }
 
-                $list[$value['foreignkey']] = array(
-                    'name' => $value['foreignkey'],
-                    'local' => array(),
-                    'foreign' => array(),
-                    'foreignTable' => $value['referencetablename'],
-                    'onDelete' => $value['delete_referential_action_desc'],
-                );
-            }
-            $list[$value['foreignkey']]['local'][] = $value['columnname'];
-            $list[$value['foreignkey']]['foreign'][] = $value['referencecolumnname'];
-        }
+    //             $list[$value['foreignkey']] = array(
+    //                 'name' => $value['foreignkey'],
+    //                 'local' => array(),
+    //                 'foreign' => array(),
+    //                 'foreignTable' => $value['referencetablename'],
+    //                 'onDelete' => $value['delete_referential_action_desc'],
+    //             );
+    //         }
+    //         $list[$value['foreignkey']]['local'][] = $value['columnname'];
+    //         $list[$value['foreignkey']]['foreign'][] = $value['referencecolumnname'];
+    //     }
 
-        $result = array();
-        foreach($list AS $constraint) {
-            $result[] = new ForeignKeyConstraint(
-                array_values($constraint['local']), $constraint['foreignTable'],
-                array_values($constraint['foreign']),  $constraint['name'],
-                array('onDelete' => $constraint['onDelete'])
-            );
-        }
+    //     $result = array();
+    //     foreach($list AS $constraint) {
+    //         $result[] = new ForeignKeyConstraint(
+    //             array_values($constraint['local']), $constraint['foreignTable'],
+    //             array_values($constraint['foreign']),  $constraint['name'],
+    //             array('onDelete' => $constraint['onDelete'])
+    //         );
+    //     }
 
-        return $result;
-    }
+    //     return $result;
+    // }
 
     public function createDatabase($name)
     {

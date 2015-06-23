@@ -64,11 +64,6 @@ class DblibSchemaManager extends SQLServerSchemaManager
      */
     protected function _getPortableTableIndexesList($tableIndexRows, $tableName=null)
     {
-        foreach ($tableIndexRows as &$tableIndex) {
-            $tableIndex['non_unique'] = (boolean) $tableIndex['non_unique'];
-            $tableIndex['primary'] = (boolean) $tableIndex['primary'];
-            $tableIndex['flags'] = $tableIndex['flags'] ? array($tableIndex['flags']) : null;
-        }
         foreach ($tableIndexRows as $key=>$tableIndex) {
             if(strrpos($tableIndex['key_name'], 'MANUAL', -strlen('MANUAL')) !== FALSE) {
                 //print_r($tableIndex);

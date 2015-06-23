@@ -59,6 +59,26 @@ class DblibSchemaManager extends SQLServerSchemaManager
     //     return $result;
     // }
 
+    /**
+     * {@inheritdoc}
+     */
+    protected function _getPortableTableIndexesList($tableIndexRows, $tableName=null)
+    {
+        foreach ($tableIndexRows as &$tableIndex) {
+            $tableIndex['non_unique'] = (boolean) $tableIndex['non_unique'];
+            $tableIndex['primary'] = (boolean) $tableIndex['primary'];
+            $tableIndex['flags'] = $tableIndex['flags'] ? array($tableIndex['flags']) : null;
+        }
+        foreach ($tableIndexRows as $key=>$tableIndex) {
+            if(strrpos($tableIndex['key_name'], 'MANUAL', -strlen('MANUAL')) !== FALSE) {
+                //print_r($tableIndex);
+                unset($tableIndexRows[$key]);
+            }
+        }
+
+        return parent::_getPortableTableIndexesList($tableIndexRows, $tableName);
+    }
+    
     public function createDatabase($name)
     {
         $query = "CREATE DATABASE $name";

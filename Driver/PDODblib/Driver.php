@@ -58,6 +58,12 @@ class Driver implements \Doctrine\DBAL\Driver
             'dateformat'
         );
 
+        $connection->exec("SET ANSI_WARNINGS ON");
+        $connection->exec("SET ANSI_PADDING ON");
+        $connection->exec("SET ANSI_NULLS ON");
+        $connection->exec("SET QUOTED_IDENTIFIER ON");
+        $connection->exec("SET CONCAT_NULL_YIELDS_NULL ON");
+
         $options = array_intersect_key($options, array_flip($availableOptions));
 
         foreach($options as $key => $value) {

@@ -82,7 +82,7 @@ class DblibSchemaManager extends SQLServerSchemaManager
             $query.= $this->_conn->options['database_size'] ? '=' .
                      $this->_conn->options['database_size'] : '';
         }
-        return $this->_conn->standaloneQuery($query, null, true);
+        return $this->_conn->exec($query);
     }
 
     /**

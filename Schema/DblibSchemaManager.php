@@ -77,7 +77,7 @@ class DblibSchemaManager extends SQLServerSchemaManager
     public function createDatabase($name)
     {
         $query = "CREATE DATABASE $name";
-        if ($this->_conn->options['database_device']) {
+        if (isset($this->_conn->options) && $this->_conn->options['database_device']) {
             $query.= ' ON '.$this->_conn->options['database_device'];
             $query.= $this->_conn->options['database_size'] ? '=' .
                      $this->_conn->options['database_size'] : '';

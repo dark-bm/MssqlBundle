@@ -69,6 +69,10 @@ class DblibSchemaManager extends SQLServerSchemaManager
                 //print_r($tableIndex);
                 unset($tableIndexRows[$key]);
             }
+            if(strrpos($tableIndex['key_name'], '_dta_index', -strlen('_dta_index')) !== FALSE) {
+                //print_r($tableIndex);
+                unset($tableIndexRows[$key]);
+            }
         }
 
         return parent::_getPortableTableIndexesList($tableIndexRows, $tableName);

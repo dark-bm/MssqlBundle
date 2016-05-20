@@ -14,7 +14,7 @@
 
 namespace SCM\MssqlBundle\Command;
 
-use use Doctrine\Bundle\DoctrineBundle\Command\Proxy\ValidateSchemaCommand;
+use Doctrine\Bundle\DoctrineBundle\Command\Proxy\ValidateSchemaCommand;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;

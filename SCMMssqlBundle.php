@@ -9,21 +9,24 @@
  * with this source code in the file LICENSE.
  */
 
-namespace Realestate\MssqlBundle;
+namespace SCM\MssqlBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Doctrine\DBAL\Types\Type;
 
-class RealestateMssqlBundle extends Bundle
+class SCMMssqlBundle extends Bundle
 {
     public function boot()
     {
         // Register custom data types
         if(!Type::hasType('uniqueidentifier')) {
-            Type::addType('uniqueidentifier', 'Realestate\MssqlBundle\Types\UniqueidentifierType');
+            Type::addType('uniqueidentifier', 'SCM\MssqlBundle\Types\UniqueidentifierType');
+        }
+        if(!Type::hasType("okpo")) {
+            Type::addType("okpo", 'SCM\MssqlBundle\Types\Okpo');
         }
 
-        Type::overrideType('date', 'Realestate\MssqlBundle\Types\DateType');        
-        Type::overrideType('datetime', 'Realestate\MssqlBundle\Types\DateTimeType');
+        Type::overrideType('date', 'SCM\MssqlBundle\Types\DateType');
+        Type::overrideType('datetime', 'SCM\MssqlBundle\Types\DateTimeType');
     }
 }

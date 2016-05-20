@@ -19,7 +19,7 @@
  * <http://www.doctrine-project.org>.
  */
 
-namespace Realestate\MssqlBundle\Platforms;
+namespace SCM\MssqlBundle\Platforms;
 
 use Doctrine\DBAL\DBALException,
     Doctrine\DBAL\Schema\TableDiff;

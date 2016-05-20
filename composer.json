@@ -1,7 +1,11 @@
 {
     "name": "dark-bm/mssql-bundle",
-    "description": "Driver for work with MsSQL server",
+    "description": "Advanced MSSQL Driver",
     "authors": [
+        {
+          "name": "Chukin Anton",
+          "email": "admin@scm.sm.ua"
+        },
         {
             "name": "Realestate"
         },
@@ -18,8 +22,8 @@
     "require": {},
     "autoload": {
         "psr-0": {
-            "Realestate\\MssqlBundle": ""
+            "SCM\\MssqlBundle": ""
         }
     },
-    "target-dir": "Realestate/MssqlBundle"
+    "target-dir": "SCM/MssqlBundle"
 }

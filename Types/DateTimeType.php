@@ -5,7 +5,7 @@
  * @author      Ken Golovin <ken@webplanet.co.nz>
  */
 
-namespace Realestate\MssqlBundle\Types;
+namespace SCM\MssqlBundle\Types;
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\Type;

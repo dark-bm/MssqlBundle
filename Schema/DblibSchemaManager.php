@@ -1,6 +1,6 @@
 <?php
 
-namespace Realestate\MssqlBundle\Schema;
+namespace SCM\MssqlBundle\Schema;
 
 use Doctrine\DBAL\Schema\SQLServerSchemaManager;
 use Doctrine\DBAL\Schema\ForeignKeyConstraint;

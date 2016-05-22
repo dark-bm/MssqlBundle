@@ -58,7 +58,7 @@ class DoctrineValidateSchemaCommand extends ValidateSchemaCommand
         $em = $emHelper->getEntityManager();
 
         $metadatas = $em->getMetadataFactory()->getAllMetadata();
-        $ignored = $this->getApplication()->getKernel()->getContainer()->getParameter('doctrine_extension.ignored_entities');
+        $ignored = $this->getApplication()->getKernel()->getContainer()->getParameter('scm_mssql.ignored_entities');
 
         $newMetadatas = array();
         foreach ($metadatas as $metadata) {

@@ -28,7 +28,7 @@ class DoctrineUpdateCommand extends UpdateSchemaDoctrineCommand
 
     protected function executeSchemaCommand(InputInterface $input, OutputInterface $output, SchemaTool $schemaTool, array $metadatas) {
 
-        $ignored = $this->getApplication()->getKernel()->getContainer()->getParameter('doctrine_extension.ignored_entities');
+        $ignored = $this->getApplication()->getKernel()->getContainer()->getParameter('scm_mssql.ignored_entities');
         /** @var $metadata \Doctrine\ORM\Mapping\ClassMetadata */
         $newMetadatas = array();
         foreach ($metadatas as $metadata) {

@@ -1,6 +1,7 @@
 {
     "name": "dark-bm/mssql-bundle",
     "description": "Advanced MSSQL Driver",
+    "license":"MIT",
     "authors": [
         {
           "name": "Chukin Anton",
